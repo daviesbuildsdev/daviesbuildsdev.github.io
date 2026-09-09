@@ -7,9 +7,9 @@
  * If a visitor does not see themselves here, nothing further down rescues it.
  * Recognition comes before capability, always.
  *
- * ⚠️ Placeholder. This is Dale's ICP work — who he is actually for, and what
- * those people are stuck on. It cannot be guessed and it should not be
- * generated. Phase 2.
+ * STATUS: Dale's copy, confirmed Step 2. The site is live but inert — no
+ * next step, enquiries never arrive; the usual fixes stalled; money keeps
+ * going out meanwhile.
  */
 
 export interface WallPoint {
@@ -24,23 +24,23 @@ export interface WallData {
 }
 
 export const wallData: WallData = {
-  heading: "TODO: heading — name the reader's situation, not Dale's service",
+  heading: "Your website is live. It's just not delivering your desired outcome.",
 
   intro:
-    "TODO: two or three sentences describing where this reader currently is. Their words, not industry words.",
+    "It's online, it looks acceptable, and it sits there. People visit, glance around, and leave without doing anything — and you never find out they were there. The enquiries you expected when it launched never really arrived.",
 
   points: [
     {
-      title: "TODO: first thing they're stuck on",
-      body: "TODO: what that actually costs them week to week.",
+      title: "Visitors leave without a trace",
+      body: "There's no clear next step on the page, so someone who might have got in touch just closes the tab instead. No message, no call, and no way to know how many.",
     },
     {
-      title: "TODO: second thing they're stuck on",
-      body: "TODO: why the obvious fix hasn't worked.",
+      title: "The usual fixes haven't landed",
+      body: "You built it yourself and it stalled at 'good enough'. The agency quotes came back at agency prices. And there's never a clear week to deal with it properly.",
     },
     {
-      title: "TODO: third thing they're stuck on",
-      body: "TODO: what happens if it stays unsolved.",
+      title: "Meanwhile it keeps costing you",
+      body: "Money goes out — on the build, or on ads pointing at a page that doesn't convert. A year on you've spent a fair bit and still don't have the steady stream of customers the site was meant to bring.",
     },
   ],
 };
