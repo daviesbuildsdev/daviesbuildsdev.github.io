@@ -9,12 +9,13 @@
  * spend. That person's question is not "is he any good?" It is "what happens
  * if this goes wrong?"
  *
- * Capability evidence does not answer that. This does.
+ * Every point is written to survive being copied out on its own. No "as
+ * mentioned above", no dependence on the point before it.
  *
- * Write every point so it survives being copied out on its own. No "as
- * mentioned above", no dependence on the section before it.
- *
- * ⚠️ Placeholder. Dale's process and commercial terms. Phase 2.
+ * STATUS: Dale's copy, confirmed Step 4 — fixed price given on the discovery
+ * call, timeline agreed per project, deposit up front with the balance at
+ * launch, revisions until the client is happy within scope, and the finished
+ * site owned outright by the client on their own hosting.
  */
 
 export interface HowThisWorksPoint {
@@ -28,24 +29,24 @@ export interface HowThisWorksData {
 }
 
 export const howThisWorksData: HowThisWorksData = {
-  heading: "TODO: heading for the process section",
+  heading: "How it works",
 
   points: [
     {
-      label: "TODO: step one",
-      body: "TODO: what happens, and what the client has to do.",
+      label: "It starts with a call",
+      body: "A short discovery call, free and no obligation. You explain the business and what the site has to do; I ask enough to understand the project and agree a realistic timeline for it.",
     },
     {
-      label: "TODO: step two",
-      body: "TODO: what happens, and what the client has to do.",
+      label: "You get a fixed price on that call",
+      body: "By the end of the call you have one fixed price for the whole project — not an hourly rate, not an estimate that moves later. What changes the number is scope: how many pages, whether you need e-commerce, whether branding or copy are part of the job.",
     },
     {
-      label: "TODO: what it costs",
-      body: "TODO: how pricing works. Vagueness here loses more work than a high number does.",
+      label: "A deposit to start, the balance at launch",
+      body: "A deposit books your slot and the work begins. The balance is due when the site goes live — nothing in between, and nothing extra unless you ask for work outside the scope we agreed.",
     },
     {
-      label: "TODO: what happens if it goes wrong",
-      body: "TODO: revisions, ownership of the finished site, what happens if Dale is unavailable.",
+      label: "Revisions until you're happy — then it's yours",
+      body: "Within the agreed scope, changes keep going until you're happy with it. At launch the finished site and its code are yours outright, on your own hosting accounts, so you are never tied to me or to a platform.",
     },
   ],
 };
