@@ -32,7 +32,7 @@ export interface SiteConfig {
 }
 
 export const siteConfig: SiteConfig = {
-  ownerName: "TODO: Dale's name or trading name",
+  ownerName: "Dale Davies",
 
   email: "TODO-your-address@example.com",
 

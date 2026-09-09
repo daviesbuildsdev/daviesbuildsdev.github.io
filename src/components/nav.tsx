@@ -36,7 +36,10 @@ export function Nav() {
         aria-label={ui.primaryNavLabel}
         className="mx-auto flex w-full max-w-5xl items-center gap-6 px-6 py-4"
       >
-        <Link href="/" className="mr-auto text-sm font-semibold tracking-tight">
+        <Link
+          href="/"
+          className="mr-auto text-sm font-medium tracking-[-0.01em] transition-colors hover:text-accent"
+        >
           {siteConfig.ownerName}
         </Link>
 

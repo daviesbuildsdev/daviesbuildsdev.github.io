@@ -10,11 +10,11 @@ export function HowThisWorks() {
     <Section id="how-it-works" muted>
       <SectionHeading>{howThisWorksData.heading}</SectionHeading>
 
-      <dl className="mt-12 space-y-8">
+      <dl className="mt-14 border-t border-border">
         {howThisWorksData.points.map((point) => (
           <div
             key={point.label}
-            className="grid gap-2 sm:grid-cols-[16rem_1fr] sm:gap-8"
+            className="grid gap-x-8 gap-y-2 border-b border-border py-7 sm:grid-cols-[16rem_1fr]"
           >
             <dt className="text-base font-semibold">{point.label}</dt>
             <dd className="max-w-[var(--measure)] text-sm text-muted">

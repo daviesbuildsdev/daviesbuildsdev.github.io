@@ -23,7 +23,7 @@ export function Section({
       id={id}
       className={muted ? "border-y border-border bg-surface" : undefined}
     >
-      <div className="mx-auto w-full max-w-5xl px-6 py-20 sm:py-24">
+      <div className="mx-auto w-full max-w-5xl px-6 py-24 sm:py-32">
         {children}
       </div>
     </section>
@@ -32,7 +32,7 @@ export function Section({
 
 export function SectionHeading({ children }: { children: React.ReactNode }) {
   return (
-    <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+    <h2 className="max-w-[24ch] text-pretty text-2xl font-semibold sm:text-[2rem] sm:leading-[1.15]">
       {children}
     </h2>
   );

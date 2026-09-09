@@ -1,28 +1,47 @@
 @import "tailwindcss";
 
 /**
- * Design tokens.
+ * Design tokens — Dale Davies.
  *
- * Every colour and every type step in this site resolves to one of these
+ * Every colour and every type step on this site resolves to one of these
  * variables. No component contains a literal colour value.
  *
- * ⚠️ These values are PLACEHOLDERS. Phase 1 makes no design choices — it
- * builds the layer that makes a design choice a one-file edit later.
+ * There are two themes. The light values live on :root; the dark values
+ * override them inside the prefers-color-scheme media query. The visitor's
+ * operating system decides which applies — there is no toggle. Adding one
+ * later means adding a [data-theme] block here and a control in the nav,
+ * nothing else.
  */
 :root {
-  --background: #ffffff;
-  --foreground: #18181b;
-  --muted: #71717a;
-  --accent: #2563eb;
-  --accent-foreground: #ffffff;
-  --border: #e4e4e7;
-  --surface: #fafafa;
+  /* Lets the browser theme its own furniture — scrollbars, form controls,
+     the space behind the page — to match. */
+  color-scheme: light dark;
 
-  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
+  --background: #fcfcfd;
+  --foreground: #16171a;
+  --muted: #63656c;
+  --accent: #0e9f6e;
+  --accent-foreground: #ffffff;
+  --border: #e4e5e9;
+  --surface: #f4f5f7;
+
+  --font-sans: var(--font-general-sans), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
-  --measure: 68ch;
+  --measure: 66ch;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0f1011;
+    --foreground: #f4f4f5;
+    --muted: #9b9da4;
+    --accent: #34d399;
+    --accent-foreground: #0b1a14;
+    --border: #262829;
+    --surface: #17181b;
+  }
 }
 
 @theme inline {
@@ -47,10 +66,40 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Headings set a fraction tighter than the browser default — General Sans
+   carries a little width, and the negative tracking reads as intentional at
+   display sizes. */
+h1,
+h2,
+h3 {
+  letter-spacing: -0.02em;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-foreground);
 }
 
 /* Visible focus for keyboard users. Never remove this without a replacement. */
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
+}
+
+/* Respect a visitor who has asked their system to reduce motion. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

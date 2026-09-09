@@ -1,9 +1,28 @@
 import type { Metadata } from "next";
+import localFont from "next/font/local";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
 import { siteConfig } from "@/data/site";
 import { ui } from "@/data/ui";
 import "./globals.css";
+
+/**
+ * General Sans, self-hosted.
+ *
+ * The font file lives in the repo (src/app/fonts) and is bundled into the
+ * build by next/font — there is no request to a font CDN at runtime, which
+ * keeps the static export self-contained. `--font-general-sans` is consumed
+ * by `--font-sans` in globals.css; nothing else references the font directly.
+ *
+ * Licensed under the ITF Free Font License — see the licence file alongside
+ * the woff2.
+ */
+const generalSans = localFont({
+  src: "./fonts/GeneralSans-Variable.woff2",
+  variable: "--font-general-sans",
+  weight: "200 700",
+  display: "swap",
+});
 
 /**
  * The root layout wraps every page. The nav and footer live here rather than
@@ -25,7 +44,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={generalSans.variable}>
       <body className="flex min-h-dvh flex-col">
         {/* Lets a keyboard user jump the nav. Visible only when focused. */}
         <a
