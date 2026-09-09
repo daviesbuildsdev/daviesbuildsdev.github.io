@@ -449,3 +449,24 @@ session, or an unattended run, is a separate authorisation against a revised spe
 two different things — what was never done, and what was done without evidence it should
 have been. Both look identical in a large diff, and with a beginner watching, neither is
 visible at all.
+
+---
+
+# Spec revisions
+
+A revision is logged like a decision. Without this, three sprints later nobody
+can tell *the builder drifted* from *the spec moved*, and those two failures
+need opposite fixes.
+
+## 9 Sep 2026 — after the phase 1 build
+
+| # | What changed | Why | Evidence that forced it |
+|---|---|---|---|
+| R1 | Both dynamic blog routes return a sentinel param when the collection is empty, and 404 it | A static export refuses to build a dynamic route that produces zero pages. Deleting the last post would have broken the build | F5-S3 executed as written: emptying `blogPosts` and running `pnpm build` failed with *Page "/blog/tag/[tag]" is missing "generateStaticParams()"* |
+| R2 | F7-S2 (transfer) moved from P3 to done, ahead of phase 2 | Matt transferred the repository the same day rather than after the copy phase | Repository now owned by `daviesbuildsdev`; Matt holds push, not admin |
+| R3 | New dependency recorded: making the repo public and enabling Pages are **owner-only** | A collaborator with push cannot change repository visibility or Pages settings. Neither can be done in advance of Dale | `gh api` reports `permissions.admin: false` for Matt on the transferred repo |
+| R4 | The deploy job ships as a pull request, not a push to main | Merging it before Pages is switched on produces a red run whose cause is a setting, not the code. A PR sequences the two correctly and doubles as the first lesson in branches | Same constraint as R3 — Dale must act first, and only he can |
+| R5 | Handover rewritten around Claude Code on the desktop; SSH removed entirely in favour of `gh auth login` over HTTPS | Matt's call: *"I want the work driven through claude code on desktop so it doesnt feel foreign."* SSH key generation is the single most likely place a first-time user stalls, and it is avoidable | Matt named it: *"theres technical aspects hes gonna fight tomorrow like connecting github (via ssh) and all sorts of shit"* |
+
+**Unchanged by this revision:** the authorising set, the out-of-scope list, and
+every standard in section 8. U4, U5, U6 and U8 remain open and remain Dale's.
