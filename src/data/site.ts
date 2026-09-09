@@ -10,8 +10,8 @@
  * first time it changes, and the broken ones look identical to the working
  * ones. One file means one edit.
  *
- * ⚠️ The TODO values below are placeholders. They are meant to be obviously
- * unfinished. Replace them, do not work around them.
+ * Conversion endpoints are Dale's live values. Socials are pending — see the
+ * note on that array below.
  */
 
 export interface SocialLink {
@@ -34,15 +34,16 @@ export interface SiteConfig {
 export const siteConfig: SiteConfig = {
   ownerName: "Dale Davies",
 
-  email: "TODO-your-address@example.com",
+  email: "davies.websitebuilds@gmail.com",
 
-  calendlyUrl: "https://calendly.com/TODO-your-calendly-handle",
+  calendlyUrl: "https://calendly.com/davies-websitebuilds/30min",
 
   siteUrl: "https://daviesbuildsdev.github.io",
 
+  // TODO: pending real profile URLs from Dale. LinkedIn is the one that
+  // matters for this audience; GitHub is optional. An empty array renders
+  // no social links and is valid.
   socials: [
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/TODO" },
-    { label: "Instagram", href: "https://www.instagram.com/TODO" },
     { label: "GitHub", href: "https://github.com/daviesbuildsdev" },
   ],
 };
