@@ -1,0 +1,46 @@
+# The check gate.
+#
+# Runs on every push to main and on every pull request. It runs exactly the
+# same four commands you run locally, so a green tick here means the same
+# thing as a clean run on your laptop.
+#
+# There is deliberately no deploy step yet. This repository has no GitHub
+# Pages target while it lives on Matt's account — a deploy job would fail for
+# a reason that has nothing to do with the code. The deploy job gets added
+# when the repository is transferred.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Build
+        run: pnpm build
