@@ -5,3 +5,9 @@ out/
 .DS_Store
 *.tsbuildinfo
 next-env.d.ts
+
+# Internal working documents — private to your machine.
+# Anything inside internal/ is ignored and will never be committed or published.
+# internal/README.md is the one exception, so the folder travels with the repo.
+/internal/*
+!/internal/README.md
