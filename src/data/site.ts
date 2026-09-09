@@ -40,12 +40,9 @@ export const siteConfig: SiteConfig = {
 
   siteUrl: "https://daviesbuildsdev.github.io",
 
-  // TODO: pending real profile URLs from Dale. LinkedIn is the one that
-  // matters for this audience; GitHub is optional. An empty array renders
-  // no social links and is valid.
-  socials: [
-    { label: "GitHub", href: "https://github.com/daviesbuildsdev" },
-  ],
+  // GitHub only, for now — Dale's call. Add a LinkedIn entry here when he
+  // wants one; an empty array is also valid and renders no social links.
+  socials: [{ label: "GitHub", href: "https://github.com/daviesbuildsdev" }],
 };
 
 /** The href for any "email me" link. Built here so no component builds one. */
