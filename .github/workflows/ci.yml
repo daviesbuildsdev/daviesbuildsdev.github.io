@@ -4,16 +4,36 @@
 # same four commands you run locally, so a green tick here means the same
 # thing as a clean run on your laptop.
 #
-# There is deliberately no deploy step yet. This repository has no GitHub
-# Pages target while it lives on Matt's account — a deploy job would fail for
-# a reason that has nothing to do with the code. The deploy job gets added
-# when the repository is transferred.
+# The `check` job runs on every push and every pull request.
+#
+# The `deploy` job runs only on main, only after the checks pass, and publishes
+# the built site to GitHub Pages. A pull request therefore gets checked but
+# never published — which is the whole point of working on a branch.
+#
+# ⚠️ This requires Pages to be switched on first:
+#   Settings -> Pages -> Build and deployment -> Source: GitHub Actions
+# With Pages off, deploy fails for a reason that has nothing to do with the
+# code. Turn it on before merging this.
 name: CI
 
 on:
   push:
     branches: [main]
   pull_request:
+
+# What the workflow is allowed to do. Pages deployment needs to write to Pages
+# and to mint an identity token; everything else stays read-only.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One deployment at a time. If two pushes land close together the newer one
+# waits rather than racing — `cancel-in-progress: false` means a half-finished
+# deploy is never abandoned mid-flight.
+concurrency:
+  group: pages
+  cancel-in-progress: false
 
 jobs:
   check:
@@ -44,3 +64,24 @@ jobs:
 
       - name: Build
         run: pnpm build
+
+      # `pnpm build` writes the finished site into `out/`. This packs that
+      # directory up so the deploy job below can publish it. It runs on every
+      # check, including pull requests — packing is harmless, publishing is not.
+      - name: Upload the built site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out
+
+  deploy:
+    # Only from main. A pull request gets checked, never published.
+    if: github.ref == 'refs/heads/main'
+    needs: check
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publish to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
