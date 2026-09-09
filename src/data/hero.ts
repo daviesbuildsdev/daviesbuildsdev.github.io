@@ -5,12 +5,10 @@
  * clearly enough that a stranger arriving from a LinkedIn post knows within
  * two seconds whether to keep reading.
  *
- * ⚠️ EVERY STRING HERE IS A PLACEHOLDER, AND DELIBERATELY SO.
- *
- * This is Dale's positioning. It is the one part of the site nobody else
- * should write for him — not Matt, not Claude. A masthead written by someone
- * else is a claim he has to defend in a sales call using words he did not
- * choose. Phase 2 is where he writes it.
+ * STATUS: Dale's copy, confirmed Step 6. The substance is his — who he
+ * builds for (startups and small/medium businesses across marketing,
+ * branding, e-commerce, barber shops and the rest), the "let's fix that"
+ * line, the eyebrow, and the work-ethic line. Only the joining words are not.
  */
 
 export interface HeroData {
@@ -27,17 +25,16 @@ export interface HeroData {
 }
 
 export const heroData: HeroData = {
-  eyebrow: "TODO: category line — e.g. 'Web design, Isle of Man'",
+  eyebrow: "Websites & branding",
 
-  name: "TODO: Dale's name",
+  name: "Dale Davies",
 
   statement:
-    "TODO: the one sentence that says what Dale does and who for. This is the line the whole page is built around. Write it last, after the sections below are settled.",
+    "I design and build websites for startups and small-to-medium businesses — marketing, branding, e-commerce, barber shops and the rest. If yours isn't doing its job, let's fix that.",
 
-  descriptor:
-    "TODO: one supporting sentence. What kind of business, what kind of outcome.",
+  descriptor: "Work ethic. Better websites.",
 
-  primaryCta: { label: "TODO: book a call" },
+  primaryCta: { label: "Book a call" },
 
-  secondaryCta: { label: "TODO: email me" },
+  secondaryCta: { label: "Email me" },
 };
