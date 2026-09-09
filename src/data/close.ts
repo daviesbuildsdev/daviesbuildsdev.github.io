@@ -5,7 +5,9 @@
  * does. So this section says plainly what the call is, what gets covered on
  * it, and what the visitor walks away with.
  *
- * ⚠️ Placeholder — except the shape, which is the point. Phase 2.
+ * STATUS: Dale's copy, confirmed Step 5 — the same free discovery call as
+ * "How it works", framed as the invitation. The visitor leaves with a fixed
+ * price and a timeline, at no cost.
  */
 
 export interface CloseData {
@@ -17,15 +19,16 @@ export interface CloseData {
 }
 
 export const closeData: CloseData = {
-  heading: "TODO: heading for the closing CTA",
+  heading: "Start with a call",
 
-  body: "TODO: one or two sentences. How long the call is, whether it costs anything, and who does the talking.",
+  body: "One short call, free and no obligation. You talk through the business and what the site needs to do; by the end you have a fixed price and a timeline — enough to decide, with nothing to pay to get there.",
 
   covers: [
-    "TODO: first thing the call covers",
-    "TODO: second thing the call covers",
-    "TODO: third thing the call covers",
+    "What the site needs to do, and who it's for",
+    "What's involved — pages, branding, copy, e-commerce",
+    "A fixed price for the whole project",
+    "A realistic timeline",
   ],
 
-  cta: { label: "TODO: button label" },
+  cta: { label: "Book a call" },
 };
