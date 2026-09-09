@@ -53,31 +53,64 @@ The loop is always the same: **change files → commit → push**.
 
 ## 3. Getting it onto your machine
 
-You need three things installed once: Git, Node.js (version 22 or newer), and
-pnpm.
+You will do all of this through **Claude Code on the desktop** — the same thing
+you watched today. You describe what you want, it does it, and you read what it
+did. That is the intended way to work here, not a shortcut.
 
-The honest advice here: **do not fight this part on your own.** Open Claude
-Code in a terminal and ask it. Something like:
+### 3.1 The one-off setup
 
-> I'm on a Mac and I've never used Git. Install Git, Node 22 and pnpm, then
-> clone https://github.com/daviesbuildsdev/daviesbuildsdev.github.io into a
-> folder called `development` in my home directory. Explain each step as you do
-> it and stop if anything looks wrong.
+Three things need installing once: Git, Node.js version 22 or newer, and pnpm.
+Then GitHub needs to know it is you.
 
-That is a completely legitimate way to work, and it is faster than reading three
-different install guides. Ask it to explain what it did afterwards — that is
-where the learning actually happens.
+🔴 **You do not need SSH keys.** If anything you read online tells you to
+generate a key, paste a public key into GitHub settings, or edit a file called
+`known_hosts`, you are on the wrong path. Close it. The route below authorises
+you through your browser and never mentions a key.
 
-Once it is cloned:
+Open Claude Code, and ask it roughly this:
+
+> I've never used Git before. Install Git, Node 22, pnpm and the GitHub CLI on
+> this Mac using Homebrew. Then run `gh auth login` and walk me through it — I
+> want HTTPS, not SSH, and I want to authenticate in the browser. Explain what
+> each step is doing.
+
+During `gh auth login` you will be asked a few questions. The answers are:
+
+| Question | Answer |
+|---|---|
+| What account? | GitHub.com |
+| Preferred protocol? | **HTTPS** |
+| Authenticate Git with your GitHub credentials? | **Yes** |
+| How would you like to authenticate? | **Login with a web browser** |
+
+It shows you an eight-character code, opens your browser, you paste the code and
+click through. That is the whole authentication story. It is remembered from
+then on.
+
+### 3.2 Getting the site
+
+> Clone https://github.com/daviesbuildsdev/daviesbuildsdev.github.io into a
+> folder called `development` in my home directory, then run `pnpm install` in
+> it and tell me if anything failed.
+
+Then open that folder in Claude Code, so everything you ask about afterwards
+happens in the right place.
+
+### 3.3 What the terminal is actually for
+
+Almost nothing. Two commands, and you will run them constantly:
 
 ```bash
-pnpm install
+pnpm dev
 ```
 
-That downloads the libraries the site is built on. It only needs doing once, and
-again whenever those libraries change.
+```bash
+pnpm typecheck && pnpm lint && pnpm build
+```
 
----
+Everything else — Git, files, fixing errors — you can describe in words and let
+Claude Code carry out. Read what it does. That is how you learn which commands
+matter, without memorising a list first.
 
 ## 4. Seeing the site
 
@@ -247,6 +280,13 @@ English. These are all reasonable things to ask:
 
 > Show me what changed since yesterday, in plain English.
 
+> Git is refusing to push and asking for a username and password. Fix my
+> authentication — I want HTTPS through the GitHub CLI, not SSH keys.
+
+That last one is worth knowing by heart. Almost every "Git won't let me push"
+problem is authentication, and almost every answer you find online will tell you
+to make an SSH key. You do not need one. `gh auth login` is the fix.
+
 Two habits that will save you every time:
 
 1. **Commit often, in small pieces.** A commit per change, not one per week. If
@@ -270,17 +310,37 @@ why it was added.
 
 ---
 
-## 11. Publishing on your own account
+## 11. Publishing — the bits only you can do
 
-This happens when the repository is transferred to you.
+Four of these are in your browser, on github.com, and **nobody else can do them
+for you.** Matt has push access to the code, but changing what a repository *is*
+requires the owner, and that is you.
 
-1. The repository moves to your GitHub account, keeping the name
-   `daviesbuildsdev.github.io`. **The name matters** — that exact name is what
-   makes it your main site address rather than a sub-page.
-2. On a free GitHub account, the repository has to be **public** for Pages to
-   serve it.
-3. In **Settings → Pages**, set the source to **GitHub Actions**.
-4. A deploy step gets added to the checks so that a green run also publishes.
+1. **Make the repository public.**
+   Settings → General → scroll to the bottom → Danger Zone → *Change visibility*
+   → Make public.
 
-After that, every push that passes the checks puts your site live at
-`https://daviesbuildsdev.github.io/` within a couple of minutes.
+   GitHub Pages only serves public repositories on a free account. Your code is
+   about to be a website anyway, so there is nothing here that was private.
+
+2. **Check the name is exactly `daviesbuildsdev.github.io`.**
+   That exact name is what makes this your main site address rather than a
+   sub-page. It should already be right — just confirm it.
+
+3. **Turn Pages on.**
+   Settings → Pages → under *Build and deployment*, set **Source** to
+   **GitHub Actions**.
+
+   Do this *before* the deploy step is merged. If the deploy runs with Pages
+   switched off, it fails for a reason that has nothing to do with your code.
+
+4. **Merge the deploy pull request.**
+   Once Pages is on, there is a pull request waiting that adds the publishing
+   step to the checks. Open it, look at the green tick, and merge it.
+
+5. **Watch it go live.**
+   Actions tab → the run that just started → wait for green. Then open
+   `https://daviesbuildsdev.github.io/`.
+
+After that, every push that passes the checks publishes automatically, usually
+within two minutes. You will never do steps 1 to 4 again.
