@@ -37,7 +37,8 @@ export const metadata: Metadata = {
     default: siteConfig.ownerName,
     template: `%s · ${siteConfig.ownerName}`,
   },
-  description: "TODO: one sentence describing the site, for search results.",
+  description:
+    "Dale Davies designs and builds websites for startups and small businesses. A fixed price agreed on a call, and the finished site is yours to keep.",
 };
 
 export default function RootLayout({
