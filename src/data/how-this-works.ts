@@ -34,18 +34,18 @@ export const howThisWorksData: HowThisWorksData = {
   points: [
     {
       label: "It starts with a call",
-      body: "A short discovery call, free and no obligation. You explain the business and what the site has to do; I ask enough to understand the project and agree a realistic timeline for it.",
+      body: "A short discovery call, free and no obligation. You explain the business and what the site has to do, and I ask enough to understand the project and agree a realistic timeline for it.",
     },
     {
       label: "You get a fixed price on that call",
-      body: "By the end of the call you have one fixed price for the whole project — not an hourly rate, not an estimate that moves later. What changes the number is scope: how many pages, whether you need e-commerce, whether branding or copy are part of the job.",
+      body: "By the end of the call you have one fixed price for the whole project. Not an hourly rate, not an estimate that moves later. What changes the number is scope: how many pages, whether you need e-commerce, whether branding or copy are part of the job.",
     },
     {
       label: "A deposit to start, the balance at launch",
-      body: "A deposit books your slot and the work begins. The balance is due when the site goes live — nothing in between, and nothing extra unless you ask for work outside the scope we agreed.",
+      body: "A deposit books your slot and the work begins. The balance is due when the site goes live. Nothing in between, and nothing extra unless you ask for work outside the scope we agreed.",
     },
     {
-      label: "Revisions until you're happy — then it's yours",
+      label: "Revisions until you're happy, then it's yours",
       body: "Within the agreed scope, changes keep going until you're happy with it. At launch the finished site and its code are yours outright, on your own hosting accounts, so you are never tied to me or to a platform.",
     },
   ],

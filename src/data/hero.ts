@@ -30,7 +30,7 @@ export const heroData: HeroData = {
   name: "Dale Davies",
 
   statement:
-    "I design and build websites for startups and small-to-medium businesses — marketing, branding, e-commerce, barber shops and the rest. If yours isn't doing its job, let's fix that.",
+    "I design and build websites for startups and small-to-medium businesses. Marketing, branding, e-commerce, barber shops and the rest. If yours isn't doing its job, let's fix that.",
 
   descriptor: "Work ethic. Better websites.",
 

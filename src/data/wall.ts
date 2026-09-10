@@ -27,7 +27,7 @@ export const wallData: WallData = {
   heading: "Your website is live. It's just not delivering your desired outcome.",
 
   intro:
-    "It's online, it looks acceptable, and it sits there. People visit, glance around, and leave without doing anything — and you never find out they were there. The enquiries you expected when it launched never really arrived.",
+    "It's online, it looks acceptable, and it sits there. People visit, glance around, and leave without doing anything, and you never find out they were there. The enquiries you expected when it launched never really arrived.",
 
   points: [
     {
@@ -40,7 +40,7 @@ export const wallData: WallData = {
     },
     {
       title: "Meanwhile it keeps costing you",
-      body: "Money goes out — on the build, or on ads pointing at a page that doesn't convert. A year on you've spent a fair bit and still don't have the steady stream of customers the site was meant to bring.",
+      body: "Money goes out on the build, or on ads pointing at a page that doesn't convert. A year on you've spent a fair bit and still don't have the steady stream of customers the site was meant to bring.",
     },
   ],
 };

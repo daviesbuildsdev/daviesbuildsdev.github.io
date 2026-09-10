@@ -28,15 +28,15 @@ export const whatIDoData: WhatIDoData = {
   items: [
     {
       title: "Websites",
-      body: "Design and build for a first proper site, or a rebuild of one that isn't working. Whether the words and images come from you or from me is scoped per project — either way you end up with a fast, clean site you own outright, not a template on a platform you rent.",
+      body: "Design and build for a first proper site, or a rebuild of one that isn't working. Whether the words and images come from you or from me is scoped per project. Either way you end up with a fast, clean site you own outright, not a template on a platform you rent.",
     },
     {
       title: "Hosting",
-      body: "I get the site live on your own accounts — domain, security, deploys — then hand it over. No monthly fee and no separate provider to chase; it stays yours to keep.",
+      body: "I get the site live on your own accounts, with the domain, security and deploys handled, then hand it over. No monthly fee and no separate provider to chase, and it stays yours to keep.",
     },
     {
       title: "Branding",
-      body: "If you already have a brand, I build to it. If you don't, I'll sort the basics the site needs to look established — logo, colours, type — so nothing looks improvised.",
+      body: "If you already have a brand, I build to it. If you don't, I'll sort the basics the site needs to look established, like the logo, colours and type, so nothing looks improvised.",
     },
     {
       title: "E-commerce",
