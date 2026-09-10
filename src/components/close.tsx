@@ -13,10 +13,11 @@ export function Close() {
 
       <ul className="mt-8 space-y-2">
         {closeData.covers.map((item) => (
-          <li key={item} className="flex gap-3 text-sm">
-            <span aria-hidden="true" className="text-accent">
-              —
-            </span>
+          <li key={item} className="flex items-center gap-3 text-sm">
+            <span
+              aria-hidden="true"
+              className="h-px w-3 shrink-0 bg-accent"
+            />
             <span className="text-muted">{item}</span>
           </li>
         ))}
